@@ -2,8 +2,8 @@
 #ifndef motor_esp32_H
 #define motor_esp32_H
 
-#include<Arduino.h>
-#include <pwmWrite.h>
+#include <Arduino.h>
+#include <ESP32Servo.h>
 
 class Motor
 {

@@ -1,8 +1,8 @@
 #include <Arduino.h>
-#include <pwmWrite.h>
 #include "motor_esp32.h"
+#include <ESP32Servo.h>
 
-Pwm pwm_m = Pwm();
+
 Motor::Motor(int motor_A, int motor_B, int motor_PWM)
 {
     A_pin = motor_A;
@@ -18,24 +18,24 @@ void Motor::m(int speed)
     {
         digitalWrite(A_pin, HIGH);
         digitalWrite(B_pin, LOW);
-        pwm_m.write(PWM_pin, speed);
+        analogWrite(PWM_pin, speed);
     }
     if (speed < 0)
     {
         digitalWrite(A_pin, LOW);
         digitalWrite(B_pin, HIGH);
-        pwm_m.write(PWM_pin, -speed);
+        analogWrite(PWM_pin, -speed);
     }
     if (speed == 0)
     {
         digitalWrite(A_pin, LOW);
         digitalWrite(B_pin, LOW);
-        pwm_m.write(PWM_pin, 0);
+        analogWrite(PWM_pin, 0);
     }
     if (speed == -999)
     {
         digitalWrite(A_pin, LOW);
         digitalWrite(B_pin, LOW);
-        pwm_m.write(PWM_pin, 255);
+        analogWrite(PWM_pin, 255);
     }
 }
