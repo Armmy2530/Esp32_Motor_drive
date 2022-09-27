@@ -1,5 +1,5 @@
 #include<motor_esp32.h>
-
+#include <pwmWrite.h>
 // Motor L 
 int enA =27;
 int in1 =26;
